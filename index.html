@@ -22,8 +22,11 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💰</text></svg>">
     
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* ===== RESET & BASE STYLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -42,6 +45,45 @@
             min-height: 100vh;
         }
         
+        /* ===== HIDE GITHUB CORNER & LINKS ===== */
+        /* GitHub Pages会自动添加的角标和链接 */
+        .github-corner,
+        .octocat,
+        header .btn,
+        .header-actions,
+        .file-navigation .btn,
+        .fork-flag,
+        .watch-and-fork-flag,
+        .repo-nav,
+        .repository-content .file-navigation,
+        .AppHeader,
+        nav[aria-label="Repository"],
+        .BorderGrid,
+        .position-relative.js-header-wrapper,
+        [class*="github"],
+        [href*="github.io"]:not(.blog-link),
+        [aria-label*="github"],
+        svg.octicon,
+        .Layout-sidebar,
+        .Layout-main,
+        .gist .file-navigation,
+        .repository-content > div:first-child {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            height: 0 !important;
+            width: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            overflow: hidden !important;
+        }
+        
+        /* 确保body没有GitHub的额外样式 */
+        body {
+            padding-top: 20px !important;
+        }
+        
+        /* ===== CONTAINER & LAYOUT ===== */
         .container {
             max-width: 900px;
             width: 100%;
@@ -56,6 +98,7 @@
             width: 100%;
         }
         
+        /* ===== TYPOGRAPHY ===== */
         h1 {
             color: #1a365d;
             font-size: 2.4rem;
@@ -70,6 +113,7 @@
             margin: 0 auto;
         }
         
+        /* ===== INVESTMENT CARD ===== */
         .investment-card {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             border-radius: 16px;
@@ -121,6 +165,7 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         
+        /* ===== TODAY'S RETURN SECTION ===== */
         .today-return {
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
@@ -148,6 +193,7 @@
             box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
         }
         
+        /* ===== CALL TO ACTION ===== */
         .cta-container {
             text-align: center;
             margin: 40px 0;
@@ -188,6 +234,7 @@
             transform: translateX(5px);
         }
         
+        /* ===== DESCRIPTION SECTION ===== */
         .description {
             background-color: white;
             border-radius: 12px;
@@ -209,6 +256,7 @@
             color: #4a5568;
         }
         
+        /* ===== FEATURES SECTION ===== */
         .features {
             display: flex;
             flex-wrap: wrap;
@@ -243,6 +291,7 @@
             margin-bottom: 10px;
         }
         
+        /* ===== DISCLAIMER ===== */
         .disclaimer {
             text-align: center;
             font-size: 0.9rem;
@@ -253,6 +302,7 @@
             border-top: 1px solid #eaeaea;
         }
         
+        /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 768px) {
             h1 {
                 font-size: 1.8rem;
@@ -278,6 +328,10 @@
                 padding: 15px 30px;
                 font-size: 1.1rem;
             }
+            
+            .features {
+                gap: 15px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -292,6 +346,18 @@
             .features {
                 flex-direction: column;
             }
+            
+            .feature {
+                min-width: 100%;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -303,6 +369,7 @@
         </header>
         
         <main>
+            <!-- Investment Card -->
             <div class="investment-card">
                 <div class="card-content">
                     <div class="investment-label">Investing</div>
@@ -316,6 +383,7 @@
                 </div>
             </div>
             
+            <!-- Call to Action -->
             <div class="cta-container">
                 <a href="https://chat.whatsapp.com/D63FUDMkPPQEkpz8JwWRzI" class="blog-link" target="_blank" id="blogLink">
                     Discover My Full Strategy on My Blog
@@ -323,6 +391,7 @@
                 </a>
             </div>
             
+            <!-- Description -->
             <div class="description">
                 <h2>My Investment Journey</h2>
                 <p>This remarkable 415.63% return was achieved through a carefully researched strategy combining traditional value investing with innovative crypto assets. While past performance doesn't guarantee future results, the principles behind this success can be applied to various market conditions.</p>
@@ -330,6 +399,7 @@
                 <p>Whether you're a seasoned investor or just starting out, you'll find actionable insights that can help you make more informed investment decisions.</p>
             </div>
             
+            <!-- Features -->
             <div class="features">
                 <div class="feature">
                     <i class="fas fa-chart-line"></i>
@@ -349,6 +419,7 @@
             </div>
         </main>
         
+        <!-- Footer -->
         <footer>
             <div class="disclaimer">
                 <p><strong>Disclaimer:</strong> This presentation is for educational purposes only. The investment results shown are not typical and past performance does not guarantee future results. Investing involves risk, including the potential loss of principal. Always conduct your own research and consult with a qualified financial advisor before making any investment decisions.</p>
@@ -358,26 +429,137 @@
     </div>
 
     <script>
-        // Add click tracking for the blog link
+        // ===== 页面交互功能 =====
+        
+        // 博客链接点击追踪
         document.getElementById('blogLink').addEventListener('click', function() {
-            // In a real implementation, you might want to send analytics data here
+            // 在实际使用中，可以添加Google Analytics或其它追踪代码
             console.log('User clicked on the blog link');
             
-            // You can add Google Analytics or other tracking here
-            // gtag('event', 'click', {'event_category': 'Blog Link', 'event_label': 'Investment Page'});
+            // 示例：Google Analytics事件追踪（取消注释使用）
+            // if (typeof gtag !== 'undefined') {
+            //     gtag('event', 'click', {
+            //         'event_category': 'Blog Link',
+            //         'event_label': 'Investment Page'
+            //     });
+            // }
         });
         
-        // Add a simple animation to the investment card on load
+        // 投资卡片加载动画
         document.addEventListener('DOMContentLoaded', function() {
             const card = document.querySelector('.investment-card');
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
+            if (card) {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 300);
+            }
             
-            setTimeout(() => {
-                card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, 300);
+            // 隐藏所有GitHub相关元素（双重保险）
+            hideGitHubElements();
+        });
+        
+        // ===== 隐藏GitHub角标和链接 =====
+        function hideGitHubElements() {
+            // 隐藏所有包含GitHub链接的元素
+            document.querySelectorAll('a').forEach(link => {
+                const href = link.getAttribute('href') || '';
+                const text = link.textContent || '';
+                
+                if ((href.includes('github.com') || href.includes('github.io')) && 
+                    !link.classList.contains('blog-link')) {
+                    link.style.display = 'none';
+                    link.style.visibility = 'hidden';
+                    link.remove();
+                }
+            });
+            
+            // 隐藏GitHub的SVG图标
+            document.querySelectorAll('svg').forEach(svg => {
+                const svgHTML = svg.outerHTML || '';
+                if (svgHTML.includes('github') || svgHTML.includes('octicon')) {
+                    svg.style.display = 'none';
+                    svg.style.visibility = 'hidden';
+                    svg.remove();
+                }
+            });
+            
+            // 隐藏包含"GitHub"文本的元素
+            document.querySelectorAll('*').forEach(element => {
+                const text = element.textContent || '';
+                const className = element.className || '';
+                
+                if ((text.includes('GitHub') || className.includes('github')) && 
+                    !element.classList.contains('blog-link')) {
+                    element.style.display = 'none';
+                    element.style.visibility = 'hidden';
+                }
+            });
+            
+            // 移除GitHub的header
+            const headers = document.querySelectorAll('header');
+            headers.forEach(header => {
+                if (header !== document.querySelector('.container header')) {
+                    header.remove();
+                }
+            });
+            
+            // 移除可能的工具栏
+            const toolbars = document.querySelectorAll('[role="navigation"], [aria-label*="repo"], [class*="Header"]');
+            toolbars.forEach(toolbar => {
+                if (!toolbar.closest('.container')) {
+                    toolbar.remove();
+                }
+            });
+        }
+        
+        // 持续监控并隐藏新出现的GitHub元素
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length) {
+                    setTimeout(hideGitHubElements, 100);
+                }
+            });
+        });
+        
+        // 开始观察DOM变化
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+        
+        // 每秒检查一次（确保GitHub元素不会重新出现）
+        setInterval(hideGitHubElements, 1000);
+        
+        // 页面完全加载后再次执行
+        window.addEventListener('load', hideGitHubElements);
+        
+        // ===== 额外的用户体验增强 =====
+        
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // 显示页面加载完成
+        window.addEventListener('load', function() {
+            console.log('Investment showcase page loaded successfully');
         });
     </script>
 </body>
